@@ -51,25 +51,22 @@ In Main.cpp:
 
 #### 1. Describe the effect each of the P, I, D components had in your implementation.
 
+When navigating the Udacity Knowledge forumn to have an initial idea how to use PID class properly, I found out that there was a blog (https://medium.com/intro-to-artificial-intelligence/pid-controller-udacitys-self-driving-car-nanodegree-c4fd15bdc981) that describes the effect of P, I and D componenets clearly with videos as visual aids. 
+
+Here are the main points: 
+* Car started to oscillate when KP value set to 0.05 whereas Ki and Kd set to zero. (expected result as the lessons say)
+* Then found the Kd value set to 1.5 stops the oscillating behaviour along with 0.05 for Kp and zero for Ki. (expected result as the lessons say)
+* Finally value Ki set as 0.0001 to reduce the steady-state error.
+
+Hence, my initial parameters for P, I and D is 0.05, 0.0001 and 1.5. 
 
 
-#### 2. Creation of the Training Set & Training Process
+#### 2. Describe how the final hyperparameters were chosen.
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+To choose the final hyperparameters in PID procedure, I implemented the 
 
 
-To augment the data sat, I also flipped images and angles thinking that this would avoid overfitting and make the model more generated. (code line 102 ~ 125). 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+### Simulation
 
+#### 1. The vehicle must successfully drive a lap around the track.
 
-I finally randomly shuffled the data set and put 20% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 3 because my training result shows that the loss won't go significanty less after 3 epochs.

@@ -32,7 +32,7 @@ My project includes the following files:
 * writeup_report.md summarizing the results
 
 #### 2. Given that we've made CMakeLists.txt as general as possible, it's recommend that you do not change it unless you can guarantee that your changes will still compile on any platform.
-No change on akeLists.txt 
+No change on CMakeLists.txt 
 
 
 ### Implementation
@@ -63,10 +63,15 @@ Hence, my initial parameters for P, I and D is 0.05, 0.0001 and 1.5.
 
 #### 2. Describe how the final hyperparameters were chosen.
 
-To choose the final hyperparameters in PID procedure, I implemented the 
+To choose the final hyperparameters in PID procedure, I implemented the twiddle algorithm in main.cpp. (code line 40 ~ 221).
+By setting the initial parameters retrieved in above step, I run twiddle for 180 iterations (twiddle = true) on simulator around 4 hours then I got my final parameters p[0] p[1] p[2]: 0.308691 0.00113215 2.86725 with error 0.0707834.
+At this moment, my dp (incremental or decremental amount in twiddle algorithm) is dp[0] dp[1] dp[2]: 0.0145652 0.00011917 0.108336
 
 
 ### Simulation
 
 #### 1. The vehicle must successfully drive a lap around the track.
+Based on the final hyper parameters retrieved in above step, I switch "twiddle" to false and run the simulator to test the driving stability.
+The test video I recorded is available via the link provided in video/video_link.txt.
 
+The car could always stay in the lane at speed 30 MPH.
